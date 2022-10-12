@@ -1,5 +1,7 @@
 import untis_tcm_wrapper
+from gcal_manager import GCalManager
 
-data = untis_tcm_wrapper.get(1, 3182, "2022-10-11", 2)
+res = untis_tcm_wrapper.get(1, 3182, "2022-10-11", 2)
 
-rooms, teachers, lessons = untis_tcm_wrapper.parse_elements(data["elements"])
+gcal = GCalManager()
+event = gcal.create_event("test name", "test description")
