@@ -11,6 +11,7 @@ from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
+calendar_id = "c_9db650c2af9c4084cf2c339f5ddef4201841310c344dd74d0f194df3b506b677@group.calendar.google.com"
 
 class GCalManager:
     def __init__(self):
@@ -32,7 +33,7 @@ class GCalManager:
 
         self.service = build('calendar', 'v3', credentials=self.creds)
 
-    def create_event(self, name, desc):
+    def create_event(self, name, desc, start_time, end_time, date):
         event = None
         try:
             event = {
@@ -40,16 +41,16 @@ class GCalManager:
                 'location': 'Parc TecnoCampus Mataró-Maresme, Carrer d\'Ernest Lluch, 32, 08302 Mataró, Barcelona',
                 'description': desc,
                 'start': {
-                    'dateTime': '2022-10-28T09:00:00',
+                    'dateTime': date + 'T' + start_time,
                     'timeZone': 'Europe/Madrid',
                 },
                 'end': {
-                    'dateTime': '2022-10-28T17:00:00',
+                    'dateTime': date + 'T' + end_time,
                     'timeZone': 'Europe/Madrid',
                 },
             }
 
-            event = self.service.events().insert(calendarId='primary', body=event).execute()
+            event = self.service.events().insert(calendarId=calendar_id, body=event).execute()
         except HttpError as error:
             print('An error occurred: %s' % error)
         except:
