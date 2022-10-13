@@ -11,7 +11,7 @@ from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-calendar_id = "c_9db650c2af9c4084cf2c339f5ddef4201841310c344dd74d0f194df3b506b677@group.calendar.google.com"
+calendar_id = "c_6qimrdfv0qrflqq864unsolkis@group.calendar.google.com"
 
 class GCalManager:
     def __init__(self):

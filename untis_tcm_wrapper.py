@@ -45,7 +45,7 @@ def parse(data):
     lessons_obj = data["elementPeriods"][str(data["elementIds"][0])]
 
     for it in lessons_obj:
-        if PRACTIC in it["lessonText"] or it["lessonText"] == "":
+        if "G101" not in it["lessonText"] and "G103" not in it["lessonText"]:
             obj = {}
             for el in it["elements"]:
                 if el["type"] == 2:
@@ -70,8 +70,11 @@ def group_lessons(lessons):
 
     curr = None
     i = 0
-    while i < len(lessons)-1:
+    while i < len(lessons):
         curr = lessons[i]
+        if(i == len(lessons)-1):
+            res.append(curr)
+            return res
         nxt = lessons[i+1]
         if curr.lesson_id == nxt.lesson_id and curr.date == nxt.date and lessons_together(curr, nxt):
             lesson = join_lessons(curr, nxt)

@@ -1,7 +1,7 @@
 import untis_tcm_wrapper
 from gcal_manager import GCalManager
 
-date = "2022-10-24"
+date = "2022-11-28"
 res = untis_tcm_wrapper.get(1, 3182, date, 2)
 
 data = untis_tcm_wrapper.parse(res)    
