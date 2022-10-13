@@ -38,7 +38,7 @@ class GCalManager:
         try:
             event = {
                 'summary': name,
-                'location': 'Parc TecnoCampus Mataró-Maresme, Carrer d\'Ernest Lluch, 32, 08302 Mataró, Barcelona',
+                #'location': 'Parc TecnoCampus Mataró-Maresme, Carrer d\'Ernest Lluch, 32, 08302 Mataró, Barcelona',
                 'description': desc,
                 'start': {
                     'dateTime': date + 'T' + start_time,
